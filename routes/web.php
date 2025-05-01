@@ -1,7 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PageController;
 
-Route::get('/', function () {
-    return view('index');  // pastikan ini sesuai dengan nama file Blade yang kamu buat
-});
+// Homepage
+Route::get('/', [PageController::class, 'home'])->name('home');
+
+// Halaman testimoni
+Route::get('/ulasan', [PageController::class, 'testimoni'])->name('testimoni');
+
+// Halaman Contact
+Route::get('tendik', [PageController::class, 'tendik'])->name('tendik');

@@ -1,0 +1,261 @@
+/* === Navbar === */
+.custom-navbar {
+    background-color: #023e8a; /* Awal: sedikit transparan */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+  }
+  .custom-navbar.scrolled {
+    background-color: rgba(2, 62, 138, 0.8);
+    backdrop-filter: blur(8px);
+  }
+  
+  .navbar-nav .nav-link {
+    font-size: 16px;
+    padding: 10px 15px;
+  }
+  .navbar-nav .nav-link.active {
+    font-weight: bold;
+    color: #ffffff !important; /* Warna gold biar kelihatan aktif */
+    border-bottom: 2px solid #55aeb5;
+  }
+  .navbar-nav .nav-link:hover {
+    border-bottom: 2px solid white;
+    padding-bottom: 4px;
+    transition: all 0.3s ease;
+    color: #ffffff;
+    text-shadow: 0px 0px 5px rgba(255,255,255,0.7);
+  }
+  
+  /* === Navbar Sign In Button === */
+  .sign-in-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+  
+  .sign-in-content {
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    color: white;
+  }
+  
+  .sign-in-icon {
+    margin-right: 8px;
+    transition: all 0.3s ease;
+  }
+  
+  .running-icon {
+    position: absolute;
+    left: 8px;
+    width: 20px;
+    height: 20px;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .sign-in-btn:hover .sign-in-icon {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  
+  .sign-in-btn:hover .running-icon {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .sign-in-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s;
+  }
+  
+  .sign-in-btn:hover::before {
+    left: 0;
+  }
+  
+  /* === Animated Menu Toggle === */
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1001;
+    margin-right: 15px;
+    transition: transform 0.3s ease;
+  }
+  
+  .menu-toggle .bar {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+  
+  .menu-toggle:hover .bar:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+  
+  .menu-toggle:hover .bar:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .menu-toggle:hover .bar:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+  
+  .menu-toggle.active .bar:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+  }
+  
+  .menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .menu-toggle.active .bar:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+  }
+  
+  /* === Sidebar Navigation === */
+  .nav-sidebar {
+    position: fixed;
+    top: 0;
+    left: -33.33vw;
+    width: 33.33vw;
+    height: 100vh;
+    background: rgba(2, 62, 138, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 1000;
+    transition: all 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+    box-shadow: 5px 0 25px rgba(0, 0, 0, 0.3);
+    padding-top: 80px;
+  }
+  
+  .nav-sidebar.active {
+    left: 0;
+  }
+  
+  .nav-sidebar .nav-link {
+    display: block;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .nav-sidebar .nav-link::before {
+    content: '';
+    position: absolute;
+    left: -100%;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: white;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-sidebar .nav-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    padding-left: 35px;
+  }
+  
+  .nav-sidebar .nav-link:hover::before {
+    left: 0;
+  }
+  
+  /* Responsive Sidebar Width */
+  @media (max-width: 992px) {
+    .nav-sidebar {
+      width: 50vw;
+      left: -50vw;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .nav-sidebar {
+      width: 70vw;
+      left: -70vw;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .nav-sidebar {
+      width: 85vw;
+      left: -85vw;
+    }
+  }
+  
+  /* === Sidebar Overlay === */
+  .sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .sidebar-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  } 
+      
+  @media (min-width: 992px) { 
+    .menu-toggle, .sidebar-overlay { 
+    display: none;
+    } 
+    .nav-menu-desktop { 
+    display: flex; 
+    }  
+    .nav-sidebar { 
+    display: none; 
+    }  
+    .navbar-brand {   
+    margin-right: 0; 
+    } 
+  } 
+        
+  @media (max-width: 768px) { 
+    .nav-sidebar { 
+      width: 50vw; /* Setengah layar di tablet */ 
+      left: -50vw; 
+      } 
+  } 
+    
+  @media (max-width: 576px) { 
+    .nav-sidebar { 
+    width: 70vw; /* Lebih besar di mobile */ 
+    left: -70vw; 
+    } 
+  }
