@@ -1,3 +1,4 @@
+
 // Toggle Sidebar
 const menuToggle = document.getElementById('menuToggle');
 const sidebar = document.querySelector('.nav-sidebar');
@@ -25,6 +26,7 @@ document.querySelectorAll('.nav-sidebar .nav-link').forEach(link => {
 }); 
 
 // Efek hover sign in 
+
 const signInBtn = document.querySelector('.sign-in-btn'); 
 
 signInBtn.addEventListener('mouseenter', function() { 
