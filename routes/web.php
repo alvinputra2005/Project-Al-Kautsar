@@ -5,7 +5,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\UlasanController;
-use App\Http\Controllers\AlumniController;
+use App\Http\Controllers\AlumnisController;
 use Illuminate\Support\Facades\Route;
 
 // Homepage (Landing Page)
@@ -27,19 +27,17 @@ Route::get('home/ulasan/{id}/edit', [UlasanController::class, 'edit'])->name('ul
 Route::put('home/ulasan/{id}', [UlasanController::class, 'update'])->name('ulasan.update');  // Proses update ulasan
 Route::delete('home/ulasan/{id}', [UlasanController::class, 'destroy'])->name('ulasan.destroy');  // Proses delete ulasan
 
-// Halaman Alumni
-Route::get('home/alumni2', [AlumniController::class, 'index'])->name('alumni.index');
-Route::get('home/alumni/create', [AlumniController::class, 'create'])->name('alumni.create');
-Route::post('home/alumni', [AlumniController::class, 'store'])->name('alumni.store');
-Route::get('home/alumni/{id}/edit', [AlumniController::class, 'edit'])->name('alumni.edit');
-Route::put('home/alumni/{id}', [AlumniController::class, 'update'])->name('alumni.update');
-Route::delete('home/alumni/{id}', [AlumniController::class, 'destroy'])->name('alumni.destroy');
+// Rute untuk alumni
+Route::get('home/alumnis', [AlumnisController::class, 'index'])->name('alumnis.index');
+Route::get('home/alumnis/create', [AlumnisController::class, 'create'])->name('alumnis.create');
+Route::post('home/alumnis', [AlumnisController::class, 'store'])->name('alumnis.store');
+Route::get('home/alumnis/{id}/edit', [AlumnisController::class, 'edit'])->name('alumnis.edit');
+Route::put('home/alumnis/{id}', [AlumnisController::class, 'update'])->name('alumnis.update');
+Route::delete('home/alumnis/{id}', [AlumnisController::class, 'destroy'])->name('alumnis.destroy');
 
-// Halaman tendik
 use App\Http\Controllers\TendikController;
 
-Route::get('/tendik/index2', [TendikController::class, 'index2'])->name('tendik.index2');
-
+Route::get('/home/tendik', [TendikController::class, 'index'])->name('tendik');
 
 // Halaman kegiatan
 Route::get('home/kegiatan', [KegiatanController::class, 'index'])->name('kegiatan');

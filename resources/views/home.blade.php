@@ -267,7 +267,7 @@
         <div class="icon"><i class="fas fa-users"></i></div>
         <h3 class="counter" data-target="1200">800++</h3>
         <p>Alumni</p><br>
-        <a href="alumni/index.php" class="btn-stat">Info Alumni</a>
+        <a href="{{ route('alumnis.index') }}" class="btn-stat">Info Alumni</a>
       </div>
       <div class="stat-box">
       <div class="icon"><i class="fas fa-building"></i></div>
